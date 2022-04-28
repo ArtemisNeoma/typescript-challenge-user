@@ -1,5 +1,5 @@
 {
-  "name": "RegisterUserTypescript",
+  "name": "registerusertypescript",
   "version": "1.0.0",
   "description": "Small server application as an exercise for typescript",
   "main": "index.js",
@@ -8,15 +8,18 @@
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/express-validator": "^3.0.0",
+    "@types/helmet": "^4.0.0",
     "@types/node": "^17.0.29",
+    "node-notifier": "^10.0.1",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.6.3"
   },
   "scripts": {
-    "dev:server": "ts-node-dev --respawn --transpile-only index.ts"
+    "dev:server": "tsnd --respawn --transpile-only index.ts"
   },
   "dependencies": {
     "express": "^4.18.0",
-    "express-validator": "^6.14.0"
+    "express-validator": "^6.14.0",
+    "helmet": "^5.0.2"
   }
 }
