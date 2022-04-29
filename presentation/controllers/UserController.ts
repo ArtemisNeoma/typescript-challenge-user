@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { validationResult } from "express-validator";
-//import Users from '../../domain/user/mocks/UserMock'
+import Users from '../../domain/user/mocks/UserMock'
 
 class UserController {
 
@@ -9,7 +9,7 @@ class UserController {
         if(!errors.isEmpty()){
             return res.status(422).json( { errors: errors.mapped() } )
         }
-        //Users.push(req.body)
+        Users.push(req.body)
         
     }
 }
