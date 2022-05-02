@@ -24,12 +24,16 @@ const validateDate = ({field, field_name}: IRequestField): ValidationChain =>
     .isISO8601()
     .withMessage(`${field_name} must be a Date`)
 
-const validateString = ({field, field_name}: IRequestField): ValidationChain =>
+const validateString = ({field, field_name, min=undefined, max=undefined}: IRequestField): ValidationChain =>
     body(field)
     .trim()
     .escape()
     .isString()
     .withMessage(`${field_name} must be a String`)
+    .isLength({min: min})
+    .withMessage(`${field_name} must be of lenght ${min} at least`)
+    .isLength({max: max})
+    .withMessage(`${field_name} must be of lenght ${max} at maximum`)
 
 const validateRequiredString = ({field, field_name}: IRequestField): ValidationChain =>
     validateString({field, field_name})
