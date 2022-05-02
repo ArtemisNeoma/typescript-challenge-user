@@ -13,6 +13,7 @@ const validateBoolean = ({field, field_name}: IRequestField): ValidationChain =>
     .withMessage(`${field_name} can't be null`)
     .isBoolean()
     .withMessage(`${field_name} must be a boolean`)
+    .toBoolean()
 
 const validateDate = ({field, field_name}: IRequestField): ValidationChain =>
     body(field)
