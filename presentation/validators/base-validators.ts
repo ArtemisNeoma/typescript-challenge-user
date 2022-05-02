@@ -38,14 +38,16 @@ const validateRequiredString = ({field, field_name}: IRequestField): ValidationC
     .withMessage(`${field_name} can't be empty`)
 
 const validateNumber = ({field, field_name, min, max}: IRequestField) =>
-    validateString({field, field_name})
+    validateRequiredString({field, field_name})
     .isLength({max: max})
     .withMessage(`${field_name} must be of lenght ${max} maximum`)
-    .customSanitizer((value: String) => {
-        return value.replace(/D/g, "")
+     .customSanitizer((value: String) => {
+        value = value.replace(/\D/g, "")
+        // console.log(value)
+        return value
     })
     .matches(`^\\d{${min}}$`) //TODO change to length({min: min})
-    .withMessage(`${field} must be of lenght ${min} at least`)
+    .withMessage(`${field} must be of composed of ${min} numbers`)
 
 export {
     IRequestField,
