@@ -12,7 +12,7 @@ server.on("error", onError)
 server.on("listening", onListening)
 
 function pipeOrPort(address: string | any) :string {
-    return typeof address == "string" ? `pipe ${address}` : `port ${address}`
+    return typeof address == "string" ? `pipe ${address}` : `port ${address.port}`
 }
 
 function onError(error: NodeJS.ErrnoException) :void {
@@ -32,6 +32,6 @@ function onError(error: NodeJS.ErrnoException) :void {
 }
 
 function onListening() {
-    let bind = pipeOrPort(server.address)
+    let bind = pipeOrPort(server.address())
     console.log(`Listening on ${bind}`)
 }
