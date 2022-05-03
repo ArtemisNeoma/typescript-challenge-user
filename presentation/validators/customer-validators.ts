@@ -29,9 +29,24 @@ const validateCpf = () =>
          if (!isCpfValid(value)) return Promise.reject()
      }).withMessage("CPF is not a valid CPF")
 
+const validateCellphone = () =>
+     validateNumber({field: "cellphone", field_name: "Cellphone Number", min: 11, max: 15})
+
+const validateBirthdate = () =>
+     validateDate({field: "birthdate", field_name: "Birthdate"})
+
+const validateEmailSms = () =>
+     validateBoolean({field: "email_sms", field_name: "EmailSms"})
+
+const validateWhatsapp = () =>
+     validateBoolean({field: "whatsapp", field_name: "Whatsapp"})
+
+const validateCountry = () =>
+     validateRequiredString({field: "country", field_name: "Country", min: 0, max: 256})
 
 const customerValidators = [
     validateName(), validateEmail(), validateEmailConfirm(), validateCpf(), 
-
+    validateCellphone(), validateBirthdate(), validateEmailSms(), validateWhatsapp(),
+    validateCountry()
 ]
 export default customerValidators
