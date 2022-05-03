@@ -55,12 +55,12 @@ const validatePostalCode = () =>
                 await got(`https://cep.awesomeapi.com.br/json/${value}`,
                 {throwHttpErrors: false})
             ).body)
-        if (typeof apiResponse.status !== undefined) return Promise.reject()
+        if (typeof apiResponse.status !== 'undefined') return Promise.reject()
      })
 
 const customerValidators = [
     validateName(), validateEmail(), validateEmailConfirm(), validateCpf(), 
     validateCellphone(), validateBirthdate(), validateEmailSms(), validateWhatsapp(),
-    validateCountry(), validateCity()
+    validateCountry(), validateCity(), validatePostalCode()
 ]
 export default customerValidators
