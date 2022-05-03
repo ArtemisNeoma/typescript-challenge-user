@@ -58,9 +58,12 @@ const validatePostalCode = () =>
         if (typeof apiResponse.status !== 'undefined') return Promise.reject()
      })
 
+const validateAddress = () =>
+     validateRequiredString({field: "address", field_name: "Address", max: 128})
+
 const customerValidators = [
     validateName(), validateEmail(), validateEmailConfirm(), validateCpf(), 
     validateCellphone(), validateBirthdate(), validateEmailSms(), validateWhatsapp(),
-    validateCountry(), validateCity(), validatePostalCode()
+    validateCountry(), validateCity(), validatePostalCode(), validateAddress()
 ]
 export default customerValidators
