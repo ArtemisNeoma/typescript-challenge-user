@@ -42,7 +42,8 @@ const validateWhatsapp = () =>
      validateBoolean({field: "whatsapp", field_name: "Whatsapp"})
 
 const validateCountry = () =>
-     validateRequiredString({field: "country", field_name: "Country", min: 0, max: 256})
+     validateRequiredString({field: "country", field_name: "Country", max: 128})
+
 
 const customerValidators = [
     validateName(), validateEmail(), validateEmailConfirm(), validateCpf(), 
