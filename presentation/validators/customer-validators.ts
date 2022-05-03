@@ -44,10 +44,12 @@ const validateWhatsapp = () =>
 const validateCountry = () =>
      validateRequiredString({field: "country", field_name: "Country", max: 128})
 
+const validateCity = () =>
+     validateRequiredString({field: "city", field_name: "City", max: 128})
 
 const customerValidators = [
     validateName(), validateEmail(), validateEmailConfirm(), validateCpf(), 
     validateCellphone(), validateBirthdate(), validateEmailSms(), validateWhatsapp(),
-    validateCountry()
+    validateCountry(), validateCity()
 ]
 export default customerValidators
