@@ -47,6 +47,17 @@ const validateCountry = () =>
 const validateCity = () =>
      validateRequiredString({field: "city", field_name: "City", max: 128})
 
+const validatePostalCode = () =>
+     validateNumber({field: "postal_code", field_name: "PostalCode", min: 8, max: 9})
+     .custom(async (value: string) => {
+        const apiResponse: any = 
+            JSON.parse(await (
+                await got(`https://cep.awesomeapi.com.br/json/${value}`,
+                {throwHttpErrors: false})
+            ).body)
+        if (typeof apiResponse.status !== undefined) return Promise.reject()
+     })
+
 const customerValidators = [
     validateName(), validateEmail(), validateEmailConfirm(), validateCpf(), 
     validateCellphone(), validateBirthdate(), validateEmailSms(), validateWhatsapp(),
