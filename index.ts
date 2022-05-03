@@ -1,7 +1,7 @@
 import express from 'express'
 import { Express, json } from 'express'
 import helmet from 'helmet'
-import routes from './presentation/routes/Routes'
+import routes from './presentation/routes/Routes.js'
 
 const app: Express = express()
 app.use(helmet())

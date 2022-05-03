@@ -1,6 +1,6 @@
 import got from 'got'
-import isCpfValid from "../../util/validateData"
-import { validateBoolean, validateDate, validateRequiredString, validateNumber, IRequestField } from './base-validators'
+import isCpfValid from "../../util/validateData.js"
+import { validateBoolean, validateDate, validateRequiredString, validateNumber, IRequestField } from './base-validators.js'
 
 const validateName = () =>
     validateRequiredString({field: "full_name", field_name: "Full Name"})

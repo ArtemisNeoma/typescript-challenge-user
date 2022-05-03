@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { validationResult } from "express-validator";
-import Users from '../../domain/user/mocks/UserMock'
+import Users from '../../domain/user/mocks/UserMock.js'
 
 class UserController {
 
