@@ -35,8 +35,8 @@ const validateString = ({field, field_name, min=undefined, max=undefined}: IRequ
     .isLength({max: max})
     .withMessage(`${field_name} must be of lenght ${max} at maximum`)
 
-const validateRequiredString = ({field, field_name}: IRequestField): ValidationChain =>
-    validateString({field, field_name})
+const validateRequiredString = ({field, field_name, max=undefined, min=undefined}: IRequestField): ValidationChain =>
+    validateString({field, field_name, max, min})
     .exists( {checkNull: true, checkFalsy: true})
     .withMessage(`${field_name} can't be falsy or null`)
     .notEmpty({ignore_whitespace: true})
