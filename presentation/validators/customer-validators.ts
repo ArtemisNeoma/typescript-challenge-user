@@ -1,5 +1,5 @@
 import got from 'got'
-//import isCpfValid from "../../utils/validateData"
+import isCpfValid from "../../util/validateData"
 import { validateBoolean, validateDate, validateRequiredString, validateNumber, IRequestField } from './base-validators'
 
 const validateName = () =>
@@ -20,10 +20,18 @@ const validateEmailConfirm = () =>
     validateEmail({field: "email_confirmation", field_name: "Email Confirmation"})
     .custom( async (value: string, { req }) => {
         return value !== req.body.email ? Promise.reject() : undefined
-    })
+    }).withMessage("Email Confirmation must be the same as Email")
+
+const validateCpf = () =>
+    validateNumber({field: 'cpf', field_name: "CPF", min: 11, max: 14})
+    .custom(async (value: string) => {
+        //console.log("Going into isCpfValid")
+         if (!isCpfValid(value)) return Promise.reject()
+     }).withMessage("CPF is not a valid CPF")
 
 
 const customerValidators = [
-    validateName(), validateEmail(), validateEmailConfirm()
+    validateName(), validateEmail(), validateEmailConfirm(), validateCpf(), 
+
 ]
 export default customerValidators
