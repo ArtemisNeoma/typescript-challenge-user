@@ -2,7 +2,10 @@
   "name": "registerusertypescript",
   "version": "1.0.0",
   "description": "Small server application as an exercise for typescript",
-  "main": "index.js",
+  "exports": "./dist/bin/www.js",
+  "engines": {
+    "node": ">=14.16"
+  },
   "author": "Neo",
   "license": "MIT",
   "devDependencies": {
@@ -16,8 +19,9 @@
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.6.3"
   },
+  "type": "module",
   "scripts": {
-    "dev:server": "tsnd --respawn --transpile-only ./bin/www.ts"
+    "dev:server": "tsnd --experimental-specifier-resolution=node --respawn --transpile-only ./bin/www.ts"
   },
   "dependencies": {
     "dotenv": "^16.0.0",
