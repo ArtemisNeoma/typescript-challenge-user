@@ -10,7 +10,7 @@ class UserController {
             return res.status(422).json( { errors: errors.mapped() } )
         }
         Users.push(req.body)
-        res.end().status(200)
+        res.send(200)
     }
 }
 
