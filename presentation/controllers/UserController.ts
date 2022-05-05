@@ -14,7 +14,7 @@ class UserController {
     }
 
     listCustomers(req: Request, res: Response, next: NextFunction) {
-        res.status(200).send("Neat!")
+        res.status(200).send(Users)
     }
 }
 
