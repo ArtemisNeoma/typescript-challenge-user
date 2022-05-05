@@ -1,9 +1,9 @@
 import { Router } from "express";
-import createCustomer from '../controllers/UserController'
+import UserController from '../controllers/UserController'
 import customerValidators from '../validators/customer-validators'
 
 const router = Router()
-router.post('/', customerValidators, createCustomer)
-router.get('/user')
+router.post('/', customerValidators, UserController.createCustomer)
+router.get('/', UserController.listCustomers)
 
 export default router

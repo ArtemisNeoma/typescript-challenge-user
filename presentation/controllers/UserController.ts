@@ -12,6 +12,10 @@ class UserController {
         Users.push(req.body)
         res.send(200)
     }
+
+    listCustomers(req: Request, res: Response, next: NextFunction) {
+        res.status(200).send("Neat!")
+    }
 }
 
-export default new UserController().createCustomer
+export default new UserController
