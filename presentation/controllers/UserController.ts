@@ -10,7 +10,7 @@ class UserController {
             return res.status(422).json( { errors: errors.mapped() } )
         }
         Users.push(req.body)
-        res.send(200)
+        res.sendStatus(200)
     }
 
     listCustomers(req: Request, res: Response, next: NextFunction) {
