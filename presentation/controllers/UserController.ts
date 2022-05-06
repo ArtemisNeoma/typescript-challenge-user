@@ -10,8 +10,12 @@ class UserController {
             return res.status(422).json( { errors: errors.mapped() } )
         }
         Users.push(req.body)
-        res.end().status(200)
+        res.sendStatus(200)
+    }
+
+    getCustomers(req: Request, res: Response, next: NextFunction) {
+        res.status(200).send(Users)
     }
 }
 
-export default new UserController().createCustomer
+export default new UserController
