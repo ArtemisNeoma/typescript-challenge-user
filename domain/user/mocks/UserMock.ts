@@ -1,2 +1,2 @@
-const Users: Array<[]> = []
+const Users: Array<object> = []
 export default Users
