@@ -13,7 +13,7 @@ class UserController {
         res.sendStatus(200)
     }
 
-    listCustomers(req: Request, res: Response, next: NextFunction) {
+    getCustomers(req: Request, res: Response, next: NextFunction) {
         res.status(200).send(Users)
     }
 }

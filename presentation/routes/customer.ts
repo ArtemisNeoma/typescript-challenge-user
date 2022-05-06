@@ -4,6 +4,6 @@ import customerValidators from '../validators/customer-validators'
 
 const router = Router()
 router.post('/', customerValidators, UserController.createCustomer)
-router.get('/', UserController.listCustomers)
+router.get('/', UserController.getCustomers)
 
 export default router
