@@ -1,2 +1,2 @@
-const Users: Array<object> = []
-export default Users
+const Users: Array<object> = [];
+export default Users;
