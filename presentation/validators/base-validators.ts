@@ -7,26 +7,35 @@ interface IRequestField {
   max?: number
 }
 
-const validateBoolean = ({ field, fieldName }: IRequestField): ValidationChain => body(field)
+const validateBase = ({ field }: IRequestField): ValidationChain => body(field)
+  .trim()
+  .escape();
+
+const validateBoolean = ({
+  field, fieldName,
+}: IRequestField): ValidationChain => validateBase({
+  field, fieldName,
+})
   .exists({ checkNull: true })
   .withMessage(`${fieldName} can't be null`)
   .isBoolean()
   .withMessage(`${fieldName} must be a boolean`)
   .toBoolean();
 
-const validateDate = ({ field, fieldName }: IRequestField): ValidationChain => body(field)
-  .trim()
-  .escape()
-  .trim()
+const validateDate = ({
+  field, fieldName,
+}: IRequestField): ValidationChain => validateBase({
+  field, fieldName,
+})
   .toDate()
   .isISO8601()
   .withMessage(`${fieldName} must be a Date`);
 
 const validateString = ({
   field, fieldName, min = undefined, max = undefined,
-}: IRequestField): ValidationChain => body(field)
-  .trim()
-  .escape()
+}: IRequestField): ValidationChain => validateBase({
+  field, fieldName,
+})
   .isString()
   .withMessage(`${fieldName} must be a String`)
   .isLength({ min })
