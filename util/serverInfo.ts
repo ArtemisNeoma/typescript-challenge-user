@@ -7,7 +7,10 @@ export function pipeOrPort(address: string | any) :string {
 
 export function onError(error: NodeJS.ErrnoException, server: Server) :never {
   if (error.syscall !== 'listen') throw error;
-
+  if (server.address() === null) {
+    console.log('Another instance of the server is already running.');
+    process.exit(1);
+  }
   const bind = pipeOrPort(server.address);
   switch (error.code) {
     case 'EACESS':
