@@ -1,10 +1,10 @@
 import { body, ValidationChain } from 'express-validator';
 
 interface IRequestField {
-    field: string,
-    fieldName: string
-    min?: number
-    max?: number
+  field: string,
+  fieldName: string
+  min?: number
+  max?: number
 }
 
 const validateBoolean = ({ field, fieldName }: IRequestField): ValidationChain => body(field)

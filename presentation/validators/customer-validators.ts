@@ -26,6 +26,7 @@ const validateCpf = () => validateNumber({
   .custom(async (value: string) => {
     // console.log("Going into isCpfValid")
     if (!isCpfValid(value)) return Promise.reject();
+    return undefined;
   }).withMessage('CPF is not a valid CPF');
 
 const validateCellphone = () => validateNumber({
@@ -53,6 +54,7 @@ const validatePostalCode = () => validateNumber({
       )
     ).body);
     if (typeof apiResponse.status !== 'undefined') return Promise.reject();
+    return undefined;
   });
 
 const validateAddress = () => validateRequiredString({ field: 'address', fieldName: 'Address', max: 128 });
