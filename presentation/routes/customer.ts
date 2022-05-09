@@ -1,9 +1,9 @@
-import { Router } from "express";
-import UserController from '../controllers/UserController'
-import customerValidators from '../validators/customer-validators'
+import { Router } from 'express';
+import UserController from '../controllers/UserController';
+import customerValidators from '../validators/customer-validators';
 
-const router = Router()
-router.post('/', customerValidators, UserController.createCustomer)
-router.get('/', UserController.getCustomers)
+const router = Router();
+router.post('/', customerValidators, UserController.createCustomer);
+router.get('/', UserController.getCustomers);
 
-export default router
+export default router;
