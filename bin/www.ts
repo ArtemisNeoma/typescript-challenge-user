@@ -1,5 +1,5 @@
 import { config } from 'dotenv';
-import { onListening, onError } from '../util/serverInfo';
+import { onListening, onError } from './serverInfo';
 import app from '../index';
 
 config({ path: './config/config.env' });
