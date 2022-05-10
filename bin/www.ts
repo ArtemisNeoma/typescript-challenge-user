@@ -1,13 +1,10 @@
 import { config } from 'dotenv';
-import { createServer } from 'http';
 import { onListening, onError } from '../util/serverInfo';
 import app from '../index';
 
 config({ path: './config/config.env' });
 const port = process.env.PORT || 3000;
-app.set('port', port);
-const server = createServer(app);
 
-server.listen(port);
-server.on('error', (error) => onError(error, server));
-server.on('listening', () => onListening(server));
+app.listen(port, () => {})
+  .on('error', (error: NodeJS.ErrnoException) => onError(error, port))
+  .on('listening', () => onListening(port));
