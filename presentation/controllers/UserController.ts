@@ -9,7 +9,7 @@ class UserController {
       return res.status(422).json({ errors: errors.mapped() });
     }
     Users.push(req.body);
-    return res.sendStatus(200);
+    return res.sendStatus(201);
   }
 
   static getCustomers(req: Request, res: Response) {
