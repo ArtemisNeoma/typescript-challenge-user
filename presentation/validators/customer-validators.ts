@@ -1,5 +1,5 @@
 import got from 'got';
-import isCpfValid from '../../util/validateData';
+import isCpfValid from '../../util/validation/validateData';
 import {
   validateBoolean, validateDate, validateRequiredString, validateNumber, IRequestField,
 } from './base-validators';
