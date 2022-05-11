@@ -36,6 +36,7 @@
     "express-validator": "^6.14.0",
     "got": "^12.0.4",
     "helmet": "^5.0.2",
+    "joi": "^17.6.0",
     "winston": "^3.7.2"
   }
 }
