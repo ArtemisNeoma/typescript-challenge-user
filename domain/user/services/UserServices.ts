@@ -1,9 +1,9 @@
 import userSchema from './helpers/userValidators';
 
 class UserService {
-  users: [object];
+  users: Array<object>;
 
-  constructor(users: [object]) {
+  constructor(users: Array<object>) {
     this.users = users;
   }
 
