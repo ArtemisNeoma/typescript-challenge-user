@@ -1,3 +1,5 @@
+import userSchema from './helpers/userValidators';
+
 class UserService {
   users: [object];
 
@@ -7,7 +9,8 @@ class UserService {
 
   public async create(newUser: object): Promise<void> {
     try {
-      this.users.push(newUser);
+      const value = await userSchema.validateAsync(newUser);
+      this.users.push(value);
     } catch (err) { console.log(err); }
   }
 }
