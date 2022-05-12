@@ -12,8 +12,6 @@ const userSchema = object.keys({
     .message('Full name can\'t be longer than 256 characters')
     .required(),
   email: stringValidation
-    .alphanum()
-    .message('Email must be alphanumeric')
     .email({ tlds: false })
     .required(),
 });
