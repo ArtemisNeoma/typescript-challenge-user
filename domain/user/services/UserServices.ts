@@ -1,4 +1,3 @@
-import { response, Response } from 'express';
 import Joi from 'joi';
 import userSchema from './helpers/userValidators';
 
