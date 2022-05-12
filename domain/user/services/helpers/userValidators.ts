@@ -1,6 +1,6 @@
-import joi from 'joi';
+import Joi from 'joi';
 
-const { object, string } = joi.types();
+const { object, string } = Joi.types();
 
 const stringValidation = string.trim();
 
