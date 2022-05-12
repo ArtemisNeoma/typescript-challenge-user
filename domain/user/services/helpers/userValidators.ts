@@ -2,7 +2,7 @@ import joi from 'joi';
 
 const { object, string } = joi.types();
 
-const stringValidation = string.strip();
+const stringValidation = string.trim();
 
 const userSchema = object.keys({
   full_name: stringValidation
@@ -11,7 +11,7 @@ const userSchema = object.keys({
     .max(256)
     .message('Full name can\'t be longer than 256 characters')
     .required(),
-  email: stringValidation
+  email: string
     .email({ tlds: false })
     .required(),
 });
