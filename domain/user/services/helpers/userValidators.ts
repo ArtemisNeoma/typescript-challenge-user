@@ -13,6 +13,7 @@ const userSchema = object.keys({
   email: stringValidation()
     .email({ tlds: false })
     .required(),
+  email_confirmation: Joi.ref('email'),
 });
 
 export default userSchema;
