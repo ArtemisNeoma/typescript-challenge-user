@@ -1,6 +1,6 @@
 import Joi from 'joi';
 import isCpfValid from '../../../../util/validation/validateData';
-import { numberStringValidation, stringValidation } from './baseValidators';
+import { dateValidation, numberStringValidation, stringValidation } from './baseValidators';
 
 const { object } = Joi.types();
 
@@ -26,6 +26,7 @@ const userSchema = object.keys({
     .required(),
   cellphone: numberStringValidation({ min: 11, max: 15 })
     .required(),
+  birthdate: dateValidation(),
 });
 
 export default userSchema;
