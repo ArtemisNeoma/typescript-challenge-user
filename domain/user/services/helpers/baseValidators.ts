@@ -9,7 +9,7 @@ interface IValidationMax {
 }
 interface IValidationConfiguration extends IValidationMin, IValidationMax {}
 
-const { string, date } = Joi.types();
+const { string, date, boolean } = Joi.types();
 const escapeHtmlString = (value: string, helpers: Joi.CustomHelpers) => {
   if (typeof value !== 'string') helpers.error('any.invalid');
   return sanitizeHtml(value);
@@ -29,3 +29,5 @@ export const numberStringValidation = (
 export const dateValidation = () => date
   .iso()
   .required();
+
+export const booleanValidation = () => boolean;
