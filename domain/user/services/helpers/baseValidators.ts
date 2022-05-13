@@ -22,4 +22,6 @@ export const numberStringValidation = (
   { min, max }: IValidationConfiguration,
 ) => stringValidation()
   .min(min)
-  .max(max);
+  .max(max)
+  .replace(/\D/g, '')
+  .pattern(new RegExp(`^\\d{${min}}$`));
