@@ -1,6 +1,6 @@
 import { Request } from 'express';
 import Joi from 'joi';
-import addContext from '../../../util/services/addContext';
+import addContext from '../../../util/services/schemaContext';
 import userContext from './helpers/userContext';
 import userSchema from './helpers/userValidators';
 

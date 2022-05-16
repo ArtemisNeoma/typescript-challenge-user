@@ -5,4 +5,6 @@ const addContext = (req: Request, context: Object) => {
   return reqContext;
 };
 
+// Joi.ref(`$${Joi.ref('.')}.min`)
+
 export default addContext;
