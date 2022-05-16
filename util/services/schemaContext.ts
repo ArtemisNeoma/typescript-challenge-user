@@ -1,10 +1,12 @@
 import { Request } from 'express';
+import Joi from 'joi';
 
-const addContext = (req: Request, context: Object) => {
+export const addContext = (req: Request, context: Object) => {
   const reqContext = { req, context };
   return reqContext;
 };
 
-// Joi.ref(`$${Joi.ref('.')}.min`)
-
-export default addContext;
+export const getSelfContext = (property?: string) => {
+  const refPath = `$${Joi.ref('.')}`;
+  return property !== undefined ? Joi.ref(refPath) : Joi.ref(`${refPath}.${property}`);
+};
