@@ -26,8 +26,7 @@ const userSchema = object.keys({
       return helpers.error('any.invalid');
     })
     .required(),
-  cellphone: numberStringValidation({ min: 11, max: 15 })
-    .required(),
+  cellphone: numberStringValidation({ min: 11, max: 15 }).required(),
   birthdate: dateValidation().required(),
   email_sms: booleanValidation(),
   whatsapp: booleanValidation(),
