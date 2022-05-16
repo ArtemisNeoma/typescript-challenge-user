@@ -2,12 +2,13 @@ import Joi from 'joi';
 import sanitizeHtml from 'sanitize-html';
 
 interface IValidationMin {
-  min: number;
+  min?: number;
 }
 interface IValidationMax {
-  max: number
+  max?: number
 }
-interface IValidationConfiguration extends IValidationMin, IValidationMax {}
+interface IValidationConfiguration extends
+  IValidationMin, IValidationMax { min: number, max: number }
 
 const { string, date, boolean } = Joi.types();
 const escapeHtmlString = (value: string, helpers: Joi.CustomHelpers) => {
