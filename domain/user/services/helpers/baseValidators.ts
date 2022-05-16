@@ -11,7 +11,7 @@ interface IValidationConfiguration extends IValidationMin, IValidationMax {}
 
 const { string, date, boolean } = Joi.types();
 const escapeHtmlString = (value: string, helpers: Joi.CustomHelpers) => {
-  if (typeof value !== 'string') helpers.error('any.invalid');
+  if (typeof value !== 'string') helpers.error('string.base');
   return sanitizeHtml(value);
 };
 export const stringValidation = () => string
