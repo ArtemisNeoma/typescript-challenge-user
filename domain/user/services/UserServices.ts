@@ -1,4 +1,7 @@
+import { Request } from 'express';
 import Joi from 'joi';
+import addContext from '../../../util/services/addContext';
+import userContext from './helpers/userContext';
 import userSchema from './helpers/userValidators';
 
 interface IUserServiceResponse {
@@ -13,9 +16,9 @@ class UserService {
     this.users = users;
   }
 
-  public async create(user: object): Promise<IUserServiceResponse> {
+  public async create(user: Request): Promise<IUserServiceResponse> {
     try {
-      const newUser = await userSchema.validateAsync(user);
+      const newUser = await userSchema.validateAsync(addContext(user, userContext));
       this.users.push(newUser);
       return { code: 201 };
     } catch (err: any) {
