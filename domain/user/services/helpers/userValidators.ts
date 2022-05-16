@@ -27,7 +27,9 @@ const userSchema = object.keys({
     })
     .required(),
   cellphone: numberStringValidation({ min: 11, max: 15 }).required(),
-  birthdate: dateValidation().required(),
+  birthdate: dateValidation()
+    .max('now')
+    .required(),
   email_sms: booleanValidation(),
   whatsapp: booleanValidation(),
 }).or('email_sms', 'whatsapp');
