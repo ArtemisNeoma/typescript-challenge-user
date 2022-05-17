@@ -17,7 +17,7 @@ class UserService {
 
   public async create(user: Request): Promise<IUserServiceResponse> {
     try {
-      console.log(user);
+      // console.log(user);
       const newUser = await userSchema.validateAsync(user, { context: userContext });
       this.users.push(newUser);
       return { code: 201 };

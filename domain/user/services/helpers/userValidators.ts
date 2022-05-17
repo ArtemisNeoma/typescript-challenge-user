@@ -6,32 +6,32 @@ import {
 
 const { object } = Joi.types();
 
-const emailValidation = () => stringValidation()
+const emailValidation = (name: string) => stringValidation(name)
   .email({ tlds: false });
 
 const userSchema = object.keys({
-  full_name: stringValidation()
+  full_name: stringValidation('full_name')
     .min(1)
     .message('Full name lenght must be at least 1')
     .max(256)
     .message('Full name can\'t be longer than 256 characters')
     .required(),
-  email: emailValidation().required(),
-  email_confirmation: emailValidation()
+  email: emailValidation('email').required(),
+  email_confirmation: emailValidation('email_confirmation')
     .valid(Joi.ref('email'))
     .required(),
-  cpf: numberStringValidation({ min: 11, max: 14 })
+  cpf: numberStringValidation('cpf')
     .custom((value, helpers) => {
       if (isCpfValid(value)) { return value; }
       return helpers.error('any.invalid');
     })
     .required(),
-  cellphone: numberStringValidation({ min: 11, max: 15 }).required(),
-  birthdate: dateValidation()
+  cellphone: numberStringValidation('cellphone').required(),
+  birthdate: dateValidation('birthdate')
     .max('now')
     .required(),
-  email_sms: booleanValidation(),
-  whatsapp: booleanValidation(),
+  email_sms: booleanValidation('email_sms'),
+  whatsapp: booleanValidation('whatsapp'),
 }).or('email_sms', 'whatsapp');
 
 export default userSchema;

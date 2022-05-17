@@ -14,11 +14,11 @@ const userContext: IServiceContext = {
   email: {},
   cpf: {
     min: 11,
-    max: 14,
+    max: 11,
   },
   cellphone: {
     min: 11,
-    max: 15,
+    max: 11,
   },
 
 };
