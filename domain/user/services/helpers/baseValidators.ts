@@ -12,7 +12,6 @@ export const stringValidation = (name: string) => string
   .custom(escapeHtmlString, 'Sanitizes HTML code included in the string for safety');
 
 export const numberStringValidation = (name: string) => stringValidation(name)
-  .custom((value: string) => {console.log(`A-${value}: ${value.length}: ${value.length > 14}`); return value})
   .min(getFromContext(name, 'min'))
   .max(getFromContext(name, 'max'))
   .replace(/\D/g, '');
