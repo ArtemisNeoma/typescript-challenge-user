@@ -19,6 +19,7 @@ export const numberStringValidation = (name: string) => stringValidation(name)
 
 export const dateValidation = (name: string) => date
   .iso()
+  .max(getFromContext(name))
   .required();
 
-export const booleanValidation = (name: string) => boolean;
+export const booleanValidation = () => boolean;
