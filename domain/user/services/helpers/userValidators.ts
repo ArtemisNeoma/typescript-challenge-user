@@ -30,8 +30,8 @@ const userSchema = object.keys({
   birthdate: dateValidation('birthdate')
     .max('now')
     .required(),
-  email_sms: booleanValidation('email_sms'),
-  whatsapp: booleanValidation('whatsapp'),
+  email_sms: booleanValidation(),
+  whatsapp: booleanValidation(),
 }).or('email_sms', 'whatsapp');
 
 export default userSchema;
