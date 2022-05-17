@@ -9,7 +9,15 @@ const escapeHtmlString = (value: string, helpers: Joi.CustomHelpers) => {
 };
 export const stringValidation = (name: string) => string
   .trim()
-  .custom(escapeHtmlString, 'Sanitizes HTML code included in the string for safety');
+  .custom(escapeHtmlString, 'Sanitizes HTML code included in the string for safety')
+  .when(`$${name}.min`, {
+    is: Joi.exist(),
+    then: Joi.string().min(getFromContext(name, 'min')),
+  })
+  .when(`$${name}.max`, {
+    is: Joi.exist(),
+    then: Joi.string().max(getFromContext(name, 'max')),
+  });
 
 export const numberStringValidation = (name: string) => stringValidation(name)
   .min(getFromContext(name, 'min'))
