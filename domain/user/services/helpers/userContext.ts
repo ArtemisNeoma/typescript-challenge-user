@@ -35,7 +35,10 @@ const userContext: IServiceContext = {
     min: 8,
     max: 8,
   },
-
+  address: {
+    min: 1,
+    max: 256,
+  },
 };
 
 export default userContext;

@@ -40,6 +40,8 @@ const userSchema = object.keys({
   postal_code: numberStringValidation('postal_code')
     .external(getCep)
     .required(),
+  address: stringValidation('address')
+    .required(),
 }).or('email_sms', 'whatsapp');
 
 export default userSchema;
