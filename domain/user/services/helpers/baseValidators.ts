@@ -26,7 +26,7 @@ export const numberStringValidation = (name: string) => stringValidation(name)
 
 export const dateValidation = (name: string) => date
   .iso()
-  .max(getFromContext(name))
+  .less(getFromContext(name, 'max'))
   .required();
 
 export const booleanValidation = () => boolean;
