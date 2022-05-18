@@ -31,6 +31,10 @@ const userContext: IServiceContext = {
     min: 1,
     max: 128,
   },
+  postal_code: {
+    min: 8,
+    max: 8,
+  },
 
 };
 

@@ -1,4 +1,5 @@
 import Joi from 'joi';
+import getCep from './getCep';
 import isCpfValid from '../../../../util/validation/validateData';
 import {
   booleanValidation, dateValidation, numberStringValidation, stringValidation,
@@ -35,6 +36,9 @@ const userSchema = object.keys({
   country: stringValidation('country')
     .required(),
   city: stringValidation('city')
+    .required(),
+  postal_code: numberStringValidation('postal_code')
+    .external(getCep)
     .required(),
 }).or('email_sms', 'whatsapp');
 
