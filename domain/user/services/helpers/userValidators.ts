@@ -32,8 +32,10 @@ const userSchema = object.keys({
     .required(),
   email_sms: booleanValidation(),
   whatsapp: booleanValidation(),
-  country: stringValidation('country'),
-  city: stringValidation('city'),
+  country: stringValidation('country')
+    .required(),
+  city: stringValidation('city')
+    .required(),
 }).or('email_sms', 'whatsapp');
 
 export default userSchema;
