@@ -23,6 +23,14 @@ const userContext: IServiceContext = {
   birthdate: {
     max: 'now',
   },
+  country: {
+    min: 1,
+    max: 128,
+  },
+  city: {
+    min: 1,
+    max: 128,
+  },
 
 };
 
