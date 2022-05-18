@@ -42,6 +42,8 @@ const userSchema = object.keys({
     .required(),
   address: stringValidation('address')
     .required(),
-}).or('email_sms', 'whatsapp');
+}).or('email_sms', 'whatsapp').options({
+  abortEarly: false,
+});
 
 export default userSchema;
