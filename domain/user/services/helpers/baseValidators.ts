@@ -1,6 +1,6 @@
 import Joi from 'joi';
 import sanitizeHtml from 'sanitize-html';
-import { getFromContext } from '../../../../util/services/schemaContext';
+import { getFromContext } from '@util/services/schemaContext';
 
 const { string, date, boolean } = Joi.types();
 const escapeHtmlString = (value: string, helpers: Joi.CustomHelpers) => {

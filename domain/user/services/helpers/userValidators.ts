@@ -1,6 +1,6 @@
 import Joi from 'joi';
+import isCpfValid from '@util/validation/validateData';
 import getCep from './getCep';
-import isCpfValid from '../../../../util/validation/validateData';
 import {
   booleanValidation, dateValidation, numberStringValidation, stringValidation,
 } from './baseValidators';

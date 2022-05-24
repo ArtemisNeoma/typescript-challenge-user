@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import Users from '../../domain/user/mocks/UserMock';
-import UserService from '../../domain/user/services/UserServices';
+import Users from '@domain/user/mocks/UserMock';
+import UserService from '@domain/user/services/UserServices';
 
 class UserController {
   static async createCustomer(req: Request, res: Response) {
