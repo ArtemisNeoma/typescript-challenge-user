@@ -26,7 +26,7 @@
   },
   "type": "commonjs",
   "scripts": {
-    "dev:server": "ts-node-dev --respawn --transpile-only ./bin/www.ts"
+    "dev:server": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only ./bin/www.ts"
   },
   "dependencies": {
     "@types/winston": "^2.4.4",
@@ -36,6 +36,7 @@
     "helmet": "^5.0.2",
     "joi": "^17.6.0",
     "sanitize-html": "^2.7.0",
+    "tsconfig-paths": "^4.0.0",
     "winston": "^3.7.2"
   }
 }
