@@ -32,6 +32,7 @@
       "@bin/*": ["./bin/*"],
       "@config/*": ["./config/*"],
       "@domain/*": ["./domain/*"],
+      "@middleware/*": ["./middleware/*"],
       "@presentation/*": ["./domain/*"],
       "@util/*": ["./util/*"]
     },                                      
