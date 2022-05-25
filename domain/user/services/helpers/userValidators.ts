@@ -1,9 +1,9 @@
 import Joi from 'joi';
 import isCpfValid from '@util/validation/validateData';
-import getCep from './getCep';
 import {
   booleanValidation, dateValidation, numberStringValidation, stringValidation,
-} from './baseValidators';
+} from '@util/validation/baseValidators';
+import getCep from './getCep';
 
 const { object } = Joi.types();
 
