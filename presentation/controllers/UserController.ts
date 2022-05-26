@@ -1,15 +1,12 @@
 import { Request, Response } from 'express';
-import { validationResult } from 'express-validator';
-import Users from '../../domain/user/mocks/UserMock';
+import Users from '@domain/user/mocks/UserMock';
+import UserService from '@domain/user/services/UserServices';
 
 class UserController {
-  static createCustomer(req: Request, res: Response) {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(422).json({ errors: errors.mapped() });
-    }
-    Users.push(req.body);
-    return res.sendStatus(201);
+  static async createCustomer(req: Request, res: Response) {
+    const userService = new UserService(Users);
+    const serviceResponse = await userService.create(req.body);
+    return res.status(serviceResponse.code).json(serviceResponse.error);
   }
 
   static getCustomers(req: Request, res: Response) {
