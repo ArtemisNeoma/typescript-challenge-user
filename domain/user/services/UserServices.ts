@@ -5,7 +5,7 @@ import userSchema from './helpers/userValidators';
 
 interface IUserServiceResponse {
   code: number,
-  error?: Joi.ValidationError
+  msg?: string | Joi.ValidationError
 }
 
 class UserService {
@@ -19,9 +19,9 @@ class UserService {
     try {
       const newUser = await userSchema.validateAsync(user, { context: userContext });
       this.users.push(newUser);
-      return { code: 201 };
+      return { code: 201, msg: 'User Created' };
     } catch (err: any) {
-      return { code: 422, error: err };
+      return { code: 422, msg: err };
     }
   }
 }

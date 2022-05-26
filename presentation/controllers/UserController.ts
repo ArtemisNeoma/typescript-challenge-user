@@ -6,7 +6,7 @@ class UserController {
   static async createCustomer(req: Request, res: Response) {
     const userService = new UserService(Users);
     const serviceResponse = await userService.create(req.body);
-    return res.status(serviceResponse.code).json(serviceResponse.error);
+    return res.status(serviceResponse.code).json(serviceResponse.msg);
   }
 
   static getCustomers(req: Request, res: Response) {
